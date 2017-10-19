@@ -5,5 +5,30 @@
   "paginate": {
     "default": 10,
     "max": 50
+  },
+  "mongodb": "mongodb://localhost:27017/cxt_android_logging_sockets_backend",
+  "authentication": {
+    "secret": "ea089516e8e2586c452858d771717c0a84c0102eeb597751d632feec486771f472eafc7776f29573a5bedf3a7de9757cd195e8591266d9a35a519a019bfc75cda45a27a34063616985c71ff4d3fbb31a234ce16f5bf816a2f3134393be80150b0c678ba43bf779dc4fc5e0cc272e92e98f31d7d11d84ccf8370c7fd757683cf424ac7e4c7797ea28617a4500154d11174b47b1771b25d4431fa46b175c760e5611938588dc4df63907dd6ce5d2359dc7aea8663a468c504e1caae19b37f916268bd6f12d424d6fdd20a403d74f16bc44af5efd23460a461e08ede136dbb816ae7915d2c13cf0b9c1ff0fcfcf1e0513ad098a42433a1c9e7b97658654251dc0a8",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
   }
 }
